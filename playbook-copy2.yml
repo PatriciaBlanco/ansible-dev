@@ -1,0 +1,13 @@
+---
+- name: Copying content from controller to hosts
+  hosts: planetexpress:!farnsworth # we eliminate farnsworth from the lineup. This is necessary as farnworth doesn't define the variable ansible_all_ipv4_addresses.
+  gather_facts: yes # default is yes
+
+  tasks:
+    - name: Copy gather fact var data into hosts
+      copy:
+        content: "{{ ansible_all_ipv4_addresses }}" # facts gathered from host. It is on the gather facts parameters. It is per hosts basis. It only copies the IPv4 addresses of the specific host in the file of that host.
+        dest: ~/ipv4info.txt      # home directory on hosts
+        backup: yes   # make backup of original
+        force: yes    # file always copied when content is diff
+

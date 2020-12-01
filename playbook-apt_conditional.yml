@@ -1,0 +1,13 @@
+---
+- name: Use apt module filtering hosts by OS 
+  hosts: planetexpress
+  gather_facts: yes # runs by default
+
+  tasks:
+
+    - name: Install steam locomotive on ALL machines
+      apt:
+        name: sl
+        state: present
+      become: yes # run as sudo
+      when: ansible_distribution == "Ubuntu" # install sl only in Ubuntu machines. CentOS need yum instead of apt

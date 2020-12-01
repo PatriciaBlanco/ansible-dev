@@ -1,0 +1,20 @@
+---
+ - name: Install EPEL libraries in YUM # Installing the "Extra Packages for Enterprise Linux". More about the project here: https://fedoraproject.org/wiki/EPEL. However, the TLDR is, when you use CentOS in place of RHEL, you don't have access to the RHEL repositories. The EPEL serves as a replacement for these, 'pay to access' software repositories.
+   hosts: planetexpress
+   become: yes # run entire playbook with sudo
+
+   tasks:
+    - name: "Install epel-release"
+      yum:
+        name: epel-release
+        state: present
+      when: ansible_distribution == "CentOS"
+
+    - name: "Update yum repos and Install package X"
+      yum:
+        update_cache: True
+        name:
+            - fail2ban
+            - moon-buggy
+        state: latest
+      when: ansible_distribution == "CentOS"

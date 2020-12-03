@@ -1,0 +1,11 @@
+---
+- name: A playbook to explore gathering facts
+  hosts: bender
+
+  connection: ssh
+  gather_facts: yes
+
+  tasks:
+          - name: display to the screen
+            debug:
+                    var: ansible_facts # this is the parent var for gather_facts

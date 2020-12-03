@@ -1,0 +1,8 @@
+CHALLENGE 03 (OPTIONAL) - Create a new template task. This single task should be placed inside of a loop statement. Loop across the following list, [{"mission": "primary", "planet": "luna park"}, {"mission": "secondary", "planet": "cineplex 14"}]. The loop should produce two files, the first one should be titled primary-mission-orders.txt, and the second secondary-mission-orders.txt. Place both of these files on the remote hosts.
+
+Answer the following questions:
+
+Q: What is the application for the template module?
+A: Anytime you need to dynamically populate a template into a finished file. Popular case uses might include rendering HTML page data, a configuration file for an application, or running configuration for a network device.
+Q: What is the double curly bracket thing about?
+A: This is called "Jinja2" notation. It is a Python library invented by the HTTP Framework engine, Django. The project is fully described at https://jinja.palletsprojects.com/en/2.11.x/
